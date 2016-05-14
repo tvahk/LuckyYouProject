@@ -1,0 +1,111 @@
+﻿@model DomainLogic.ApiModel.DrawAPI
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Draws</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawFacebookAddress, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DrawFacebookAddress, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.DrawFacebookAddress, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawProductsAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DrawProductsAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DrawProductsAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DrawName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DrawName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AgeGroup, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AgeGroup, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.AgeGroup, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DrawStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DrawStartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserId, "FirstName", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductId, "Product", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProductId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawCategoryId, "DrawCategory", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("DrawCategoryId", null, htmlAttributes: new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.DrawCategoryId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawDurationId, "DrawDuration", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("DrawDurationId", null, htmlAttributes: new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.DrawDurationId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawPriorityId, "DrawPriority", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("DrawPriorityId", null, htmlAttributes: new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.DrawPriorityId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrawSizeId, "DrawSize", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("DrawSizeId", null, htmlAttributes: new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.DrawSizeId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,54 @@
+﻿@model WebService.Models.ManageModel
+@{
+    ViewBag.Title = "Manage users";
+}
+
+<h2>Users</h2>
+    <table class="table margin">
+        <tr>
+            <th>
+                Username
+            </th>
+            <th class="text-center">
+                Games played
+            </th>
+            <th class="text-center">
+                Connection limit (minute)
+            </th>
+            <th class="text-center">
+                Connection limit (week)
+            </th>
+            <th class="text-center">
+                Roles
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    @user.UserName
+                </td>
+                <td class="text-center">
+                    @user.Game.Count
+                </td>
+                <td class="text-center">
+                    @user.ConnectionsMinuteRate
+                </td>
+                <td class="text-center">
+                    @user.ConnectionsWeekRate
+                </td>
+                <td class ="text-center">
+                    @foreach (var role in user.Roles)
+                    {
+                        @role.Role.Name
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = user.Id})
+                </td>
+            </tr>
+        }
+
+    </table>

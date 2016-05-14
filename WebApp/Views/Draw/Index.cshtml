@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<DomainLogic.ApiModel.DrawAPI>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron text-center text-uppercase">
+    <h1>Draws</h1>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create", new object { },new { @class = "btn btn-primary btn-lg raised" })
+</p>
+<hr/>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="item">
+                <a href="#" data-toggle="modal" data-target="#more">
+                    <img class="img-responsive img-filter" src="/Images/no-image-available.jpg"/>
+                </a>
+            </div>
+
+            <div class="text-center margin-bottom">
+                <span class="transform">@Html.DisplayFor(modelItem => item.DrawName)</span><br/>
+                <span class="transform small-text">@Html.DisplayFor(modelItem => item.ProductName)</span>
+                <a href="@Html.DisplayFor(modelItem => item.DrawFacebookAddress)" target="_blank" class="share-btn facebook"><br/>
+                    <i class="fa fa-facebook fa-2x"></i> SHARE
+                </a>
+                <div data-countdown="@Html.ValueFor(modelItem => item.DrawEndDate)"></div>
+            </div>
+        </div>
+    }
+
+</div>

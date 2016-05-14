@@ -1,0 +1,19 @@
+﻿@model List<DomainLogic.ApiModel.DrawCategoryAPI>
+@{
+    ViewBag.Title = "_NavBar";
+}
+
+@foreach (var item in Model)
+{
+    @Html.ActionLink(
+    linkText: item.DrawCategoryValue,
+    actionName: "Index",
+    controllerName: "Draw",
+    routeValues: new
+    {
+        categoryId = item.DrawCategoryId,
+    },
+    htmlAttributes: null
+)
+}
+
